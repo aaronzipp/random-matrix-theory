@@ -36,6 +36,8 @@ citestyle=numeric, sorting=nyt]{biblatex}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\S}{\mathcal{S}}
 \newcommand{\V}{\mathrm{Var}}
 \newcommand{\E}{\bm{\mathrm{E}}}
 \newcommand{\e}{\mathrm{e}}
@@ -100,6 +102,65 @@ Not enough for finite dimensions (no information about the rate). In every dimen
     s_{\max}(A) \le C\sqrt{n},
 \]
 with probability at least $1 - C'\e^{-n}$.
+
+\subsection{Guiding paradigm}
+
+Tall random matrices should act as approximate isometries.
+A $N \times n$ random matrix $A$ with $\gg$ should satisfy
+\[
+    \begin{aligned}
+        (1-\delta)k\|x\|_2 \le \|Ax\|_2 \le (1+\delta)k\|x\|_2
+    \end{aligned}
+\]
+with high probability.
+
+\subsection{In this class}
+
+We study (tall) random matrices with independent rows or independent columns
+and either
+\begin{itemize}
+    \item strong moment assumptions (subgaussian)
+    \item no moment assumptions, except finite variance (heavy-tailed)
+\end{itemize}
+
+\section{Preliminaries}
+
+\subsection{Matrices and their singular values}
+
+We mostly study tall $A \in \R^{N \times n}$.
+
+\begin{defi}
+    The numbers $s_1(A) \ge s_2(A) \ge \ldots \ge s_1(A) \ge 0$, such that
+    $s_i^2(A)$ are the eigenvalues of $A^\ast A$, are called the \emph{singular values} of $A$.
+    We also write
+    \[
+        \begin{aligned}
+            s_{\max}(A) := s_1(A), \quad s_{\min}(A) := s_n(A) .
+        \end{aligned}
+    \] 
+\end{defi} 
+
+\begin{defi}
+    We define the \emph{spectral norm} as
+    \[
+        \begin{aligned}
+            \|A\| = \|A\|_{\ell^2 \to \ell^2} = \sup_{x \in \S^{n-1}} \|Ax\|_2.
+        \end{aligned}
+    \] 
+\end{defi} 
+
+$s_{\max}(A) = \|A\|$ and $s_{\min}(A) = \|A^\dagger\|^{-1}$, where $A^\dagger$ is the pseudoinverse.
+
+\begin{defi}
+    Let $A \in \R^{N \times n}$ or $\C^{N \times n}$ with singular values $s := (s_1,\ldots,s_n)$.
+    Let $1 \le p \le \infty$. Then the \emph{Schatten-$p$-norm} is defined as
+    \[
+        \begin{aligned}
+            \|A\|_{S^p} := \|s\|_p.
+        \end{aligned}
+    \]
+    The Schatten-$2$-norm is also called \emph{Frobenius norm} and denoted by $\|\cdot\|_F$.
+\end{defi}
 
 \newpage
 
