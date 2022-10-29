@@ -1,0 +1,108 @@
+\documentclass[13pt]{article}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{dsfont}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{plain}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem*{ex}{Example}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\usepackage[backend = biber, style=numeric-comp,
+citestyle=numeric, sorting=nyt]{biblatex}
+\addbibresource{literature.bib}
+
+\usepackage{xcolor}
+\usepackage[hidelinks,urlcolor=blue]{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor={blue!80!black},
+}
+
+\usepackage[left=3cm, top=1.5cm, includeheadfoot]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\V}{\mathrm{Var}}
+\newcommand{\E}{\bm{\mathrm{E}}}
+\newcommand{\e}{\mathrm{e}}
+
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Why singular values?}
+
+Text: Vershynin \cite{non_asym_random_matrices}
+
+\begin{itemize}
+    \item Linear equations $y = Ax$ are the simplest possible approximation
+        for any continuous model
+    \item Taylor's theorem: For small variable range, we have a good
+        approximation (under some regularity conditions)
+\end{itemize}
+
+\subsection{Why random matrices?}
+
+\begin{enumerate}
+    \item Compressed Sensing
+        \begin{itemize}
+            \item For square matrix case: identity is perfectly well-conditioned
+            \item For a flat rectangular matrix $A \in \R^{m \times N}, m < N$, can
+                we choose $A$ such that all $k$-column submatrices are approximate isometries?
+        \end{itemize}
+    \item Dimension reduction
+        \begin{itemize}
+            \item $p$ points $\{x_1,\ldots,x_p\}$ in $\R^N$
+            \item can we project $\R^N \to \R^m$ using a matrix $A$ such that
+                the geometry is preserved?
+                \[
+                    (1-\varepsilon)\|x_i-x_j\| \le \|Ax_i - Ax_j\| \le (1+\varepsilon)\|x_i - x_j\|
+                \]
+            \item deterministic methods \underline{must} adapt to $\{x_1,\ldots,x_p\}$; no single
+                matrix will work for all sets
+        \end{itemize}
+\end{enumerate}
+
+\subsection{Asymptotic and non-asymptotic regimes}
+
+Observation: $N, n \to \infty \implies $ spectrum of $A$ stabilizes \\
+Mathematical formulation: Limit laws (random matrix version of Central Limit Theorem)
+
+\begin{ex}[Bai-Yin Law]
+    $A \in \R^{n \times n}$, entries independent standard normal random variables.
+    Then
+    \[
+        \frac{s_{\max}(A)}{2\sqrt{n}} \to 1 \quad \text{ a.s. as } n \to \infty.
+    \]
+\end{ex}
+
+Not enough for finite dimensions (no information about the rate). In every dimension one has
+\[
+    s_{\max}(A) \le C\sqrt{n},
+\]
+with probability at least $1 - C'\e^{-n}$.
+
+\newpage
+
+\printbibliography
+
+\end{document}
