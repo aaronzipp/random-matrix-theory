@@ -37,6 +37,7 @@ citestyle=numeric, sorting=nyt]{biblatex}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\NN}{\mathcal{N}}
 \renewcommand{\S}{\mathcal{S}}
 \newcommand{\V}{\mathrm{Var}}
 \newcommand{\E}{\bm{\mathrm{E}}}
@@ -162,8 +163,21 @@ $s_{\max}(A) = \|A\|$ and $s_{\min}(A) = \|A^\dagger\|^{-1}$, where $A^\dagger$ 
     The Schatten-$2$-norm is also called \emph{Frobenius norm} and denoted by $\|\cdot\|_F$.
 \end{defi}
 
+\subsection{Nets}
+
+\begin{defi}
+    Let $(X,d)$ be a metric space and let $\varepsilon > 0$.
+    A subset $\NN_\varepsilon$ of $X$ is called an \emph{$\varepsilon$-net} of $X$ if
+    every point $x \in X$ can be approximated to an accuracy of $\varepsilon$ by
+    some point $y \in \NN_\varepsilon$, i.e., s.t. $d(x,y) \le \varepsilon$.
+    The minimal cardinality of an $\varepsilon$-net of $X$, if finite, is
+    denoted $\NN(X,\varepsilon)$ and is called the \emph{covering number} of $X$.
+\end{defi}
+
+$X$ is compact $\iff \NN(X,\varepsilon)$ is finite.
+
 \newpage
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \end{document}
